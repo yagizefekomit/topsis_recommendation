@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import pandas as pd
 import topsis_application as ts
+
 app = FastAPI()
 
 df = pd.read_csv('Finalized_numeric.csv')
@@ -18,7 +19,7 @@ class Request(BaseModel):
 
 
 @app.post("/recommend/")
-async def create_item(request: Request):
+async def recommend(request: Request):
     weight_mt = [
         request.display,
         request.performance,
