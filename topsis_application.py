@@ -40,13 +40,13 @@ def topsis_recommendation(df: pd.DataFrame, weights: list, criteria: list):
 
     best_index = topsis_scores.idxmax()
 
-    return best_index, topsis_scores[best_index]
+    return best_index, topsis_scores
 
 
 user_weights = [7, 8, 7, 9, 4, 5, 6, 10]  # Example weights
 # Excel'deki dosyaya göre ağırlık denemesi
 user_weights = [0.053522102,0.135796266, 0.054543895, 0.094948131, 0.124045032, 0.221139148, 0.099421148, 0.216584278]
 
-recommended_index = topsis_recommendation(df, user_weights, benefit_criteria)
+recommended_index, _ = topsis_recommendation(df, user_weights, benefit_criteria)
 #print(df.iloc[recommended_index, [0,1]])
 print(recommended_index)
